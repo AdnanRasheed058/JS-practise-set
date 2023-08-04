@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Dark Mode</title>
+    <style>
+        body{
+            margin: 0px;
+            padding: 0px;
+        }
+        .container{
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(152, 200, 101);
+        }
+        .left{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center ;
+        }
+        .right{
+            width: 50%;
+        }
+        .nav{
+            display: flex;
+            margin: 1rem;
+        }
+        .nav li{
+            list-style:none;
+            margin: 1rem;
+            
+        }
+        ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: larger;
+        }
+        .search-box{
+            width: 6rem;
+            height: 2rem;
+            border: none;
+            border-radius: 3px;
+            margin-right: 1rem;
+        }
+        .login-btn{
+            width: 4rem;
+            height: 2rem;
+            font-size: large;
+            border: none;
+            border-radius: 5px;
+        
+        }
+        .hero{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 7rem 10rem;
+        }
+        .mode{
+            display: flex;
+            flex-direction: column;
+            display: none;
+            position: absolute;
+            top: 2.5rem;
+            left: 15rem;
+            background-color: rgb(67, 114, 114);
+            color: white;
+            width: 7rem;
+            justify-content: flex-start;
+            align-items: flex-start;
+
+        }
+        .mode li{
+            list-style: none;
+            margin: .5rem 0rem;
+        }
+        .open{
+            display: block;
+        }
+        .bluee{
+            background-color: rgb(117, 117, 172);
+            color: white;
+        }
+        .bluenavigation{
+            background-color: rgb(75, 75, 136);
+            color: white;
+        }
+        .greeen{
+            background-color: rgb(88, 139, 88);
+            color: white;
+        }
+        .yelloww{
+            background-color: rgb(167, 167, 75);
+            color: white;
+        }
+        .service{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 3rem;
+
+        }
+        .scrol-btn{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: larger;
+            background-color: brown;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            outline: none;
+            cursor: pointer;
+        }
+        .scrol-btn:hover{
+            background-color: rgb(84, 62, 105);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="right">
+            <ul class="nav">
+                <li><a href="">Home</a></li>
+                <li><a href="">Counsling</a></li>
+                <li class="open">Mode Changer</li>
+            </ul>
+
+        </div>
+        <ul class="mode">
+            <li class="blue" onclick="myfunction () " ondblclick="navfunction ()">Blue Mode</li>
+            <li class="green" onclick="greenfunctionn ()">Green Mode</li>
+            <li class="yellow" onclick="yellowfunction ()">Yellow Mode</li>
+        </ul>
+        <div class="left">
+            <input type="search" name="" placeholder="Search" id="" class="search-box">
+            <button class="login-btn">login</button>
+
+        </div>
+
+    </div>
+    <div class="hero">
+        <h1>welcome to my welcome</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas modi unde aut quis eos ipsa rem quia exercitationem quasi cum? Animi, voluptatibus porro? Cumque facilis sunt optio? Architecto, est maiores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas modi unde aut quis eos ipsa rem quia exercitationem quasi cum? Animi, voluptatibus porro? Cumque facilis sunt optio? Architecto, est maiores.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas modi unde aut quis eos ipsa rem quia exercitationem quasi cum? Animi, voluptatibus porro? Cumque facilis sunt optio? Architecto, est maiores.</p>
+    </div>
+    <div class="service">
+        <h1>our services</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas culpa in vitae ullam dolore corporis cupiditate excepturi nisi et saepe eos, accusantium, unde odit assumenda, dolorem perferendis molestias! Exercitationem, accusamus quas dolorum ipsa officiis sed tempore ipsam autem delectus saepe! Consequatur magni dolor excepturi cupiditate non quod quo, provident quam.</p>
+        <h1>what our say</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia adipisci illo vitae perferendis quos consectetur possimus sequi animi nemo ducimus impedit fugit corrupti provident nobis suscipit odio esse praesentium, architecto, quae aliquid, assumenda cumque ab. Officiis quasi, quas ducimus eveniet aliquid alias delectus commodi eligendi, non, magni ut quibusdam adipisci.</p>
+        
+    </div>
+    <button class="scrol-btn" onclick="scrol()"> top</button>
+    
+</body>
+<script>
+    let modeChanger = document.querySelector(".open")
+    modeChanger.addEventListener("click",()=>{
+        let mode = document.querySelector(".mode")
+    mode.classList.toggle("open")
+    })
+    function myfunction (){
+        let element = document.body
+        element.classList.toggle("bluee")
+        
+    }
+      let nav = document.querySelector(".container")
+      nav.addEventListener("click", ()=>{
+        let bluenav = document.querySelector("blue")
+        bluenav.classList.toggle("bluenavigation")
+
+      })
+      function greenfunctionn (){
+        let greenish = document.body
+        greenish.classList.toggle("greeen")
+      }
+      function yellowfunction (){
+        let yellowish = document.body
+        yellowish.classList.toggle("yelloww")
+      }
+
+      function scrol (){
+      document.documentElement.scrollTop = 0;
+        // scrolBtn.document.scrollTop = 0;
+      }
+
+
+    
+</script>
+</html>

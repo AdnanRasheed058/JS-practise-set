@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid test</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(4, 2fr);
+            grid-template-rows: repeat(auto, 100px);
+            gap: 1rem;
+        }
+        .box{
+            padding: 2rem;
+            background-color: aqua;
+
+        }
+        #box-1{
+            background-color: black;
+            color: white;
+        }
+        #box-2{
+            grid-column-start: 2;
+            grid-column-end: 5;
+            background-color: pink;
+        }
+        #box-3{
+            grid-column-start: 1;
+            grid-column-end:5 ;
+            grid-row-start: 2;
+            grid-row-end: 5;
+            background-color: rgb(134, 134, 198);
+        }
+        #box-4{
+            grid-column-start: 1;
+            grid-column-end: 3;
+          
+            background-color: blueviolet;
+
+        }
+        #box-5{
+            grid-column-start:4 ;
+            background-color: rgb(126, 109, 141);
+        }
+        #box-6{
+            grid-column-start: 1;
+            grid-column-end: 3;
+      
+            background-color: blueviolet;
+            
+        }
+        #box-7{
+            grid-column-start: 4;
+        }
+        #box-8{
+            grid-column-start: 1;
+            grid-column-end: 5;
+            background-color: yellow;
+        }
+        #list{
+            display: none;
+        }
+        .show{
+            display: block !important;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box-1">Header</div>
+        <div class="box" id="box-2">menu </div>
+        <div class="box" id="box-3">Hero</div>
+        <div class="box" id="box-4">Main</div>
+        <div class="box" id="box-5">image</div>
+        <div class="box" id="box-6">main</div>
+        <div class="box" id="box-7">image</div>
+        <div class="box" id="box-8">Banner</div>
+        <!-- <div class="box" id="box-">this is box 9</div>
+        <div class="box" id="box-">this is box 10</div>
+        <div class="box" id="box-">this is box 11</div>
+        <div class="box" id="box-">this is box 12</div> -->
+    </div>
+    <button id="btn">
+        more
+    </button>
+    <ul id="list">
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+    </ul>
+    
+</body>
+<script>
+      let a = document.getElementById("btn")
+      a.addEventListener("click",function(){
+        document.getElementById("list")
+
+
+        list.classList.toggle("show")
+        
+      })
+</script>
+</html>

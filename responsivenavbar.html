@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+
+    <title>Responsive navbar</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .top-navbar{
+            background-color: black;
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem;
+
+        }
+        .logo{
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .navigation{
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .navigation ul {
+            display: flex;
+        }
+        .navigation ul li{
+            list-style: none;
+            margin: 1rem;
+        }
+        .navigation ul li a{
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .icon{
+            color:white;
+        }
+        .humburger{
+            display: none;
+        }
+        @media only  screen and  (max-width: 600px ) {
+            .top-navbar{
+                width: 100%;
+            }
+            .humburger{
+                display: block;
+            }
+            .top-navbar.responsive {
+                padding: 50px;
+            }
+            .humburger
+
+        }
+    </style>
+</head>
+<body>
+    <div class="top-navbar">
+        <div class="logo">
+            <h2>Logo</h2>
+
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" class="humburger" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                  </svg></li>
+               
+               
+            </ul>
+
+        </div>
+    </div>
+    
+</body>
+</html>

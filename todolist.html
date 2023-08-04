@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+  <style>
+    body{
+      font-family: sans-serif;
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+    .nav{
+      display: flex;
+      background-color: rgb(195, 166, 205);
+      justify-content: space-between;
+      /* position: fixed; */
+      top: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+    .navigation{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .logo{
+      width: 100px;
+      height: auto;
+      margin-right: 2rem;
+    }
+    .allpage{
+      margin-right: 2rem;
+      margin-left: 3rem;
+      font-size: x-large;
+      text-decoration: none;
+      color: white;
+    }
+    .newpage{
+      font-size: x-large;
+      text-decoration: none;
+      color: white;
+    }
+    .workspace{
+      color: white;
+    }
+    .switch{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .cta-btn{
+      width: 60px;
+      height: 60px;
+      border: none;
+      border-radius: 50%;
+      margin: .5rem;
+    }
+    #dark-mode{
+      color: white;
+      background-color: black;
+    }
+    #light-mode{
+      color: black;
+      background-color: white;
+    }
+    #profile-btn{
+      background-color: rgb(54, 130, 54);
+      color: white;
+      margin-right: 5rem;
+    }
+    .profile-list{
+      list-style: none;
+      font-size: larger;
+      background-color: rgb(49, 101, 83);
+      position: absolute;
+      top: 4.5rem;
+      right: 2rem;
+      color: white;
+      line-height: 2rem;
+      border-radius: .5rem;
+      display: none;
+      width: 110px;
+      z-index: +99;
+    }
+    .open-profile-list{
+      display: block;
+    }
+    .sign-open{
+      display: block;
+    }
+
+    /* form start here  */
+
+    #form-div{
+      display: flex;
+      background-color: rgb(81, 81, 156);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: auto;
+      height: 20rem;
+      margin: 5rem 30rem;
+      /* display: none;  */
+    }
+    .email{
+      margin-top: 1rem;
+    }
+
+    .phone-input{
+      width: 140px;
+      margin-right: 1rem;
+      border-radius: 6px;
+      border: none;
+
+    }
+    .email-input{
+      width: 190px;
+      border: none;
+      border-radius: 6px;
+      border: none;
+    }
+    .profile-avatar{
+      border-radius: 50%;
+      width: 120px;
+      height: auto;
+      margin-right: 1rem;
+    }
+    .name-input{
+            border-radius: 6px;
+            border: none;
+
+    }
+    .save-btn{
+      border-radius: 6px;
+      margin-top: 2rem;
+      padding: .5rem 1.5rem;
+      margin-left: -15rem;
+      font-size: larger;
+      border: none;
+
+
+    }
+
+    /* data show  */
+    .data-show{
+      width: auto;
+      height: 13rem;
+      background-color: rgb(38, 38, 62);
+      color: white;
+      margin: 5rem 30rem;
+      
+    }
+    .data-show h1{
+      font-size: xx-large;
+    }
+
+    /* scroll button */
+
+    #scroll-btn{
+      position: fixed;
+      bottom: 29px;
+      right: 20px;
+      border: none;
+      border-radius: 50%;
+      background-color: rgb(134, 134, 196);
+      display: none;
+    }
+
+  </style>
+</head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="navigation">
+          <img src="logo.png" alt="" class="logo">
+          <h2 class="workspace">Work Space</h2>
+          <a href="" class="allpage">All</a>
+          <a href="" class="newpage">New</a>
+
+        </div>
+        <div class="switch">
+          <button class="cta-btn" id="dark-mode">Dark Mode</button>
+          <button class="cta-btn" id="light-mode">Light Mode</button>
+          <button class="cta-btn" id="profile-btn">Profile</button>
+          <ul class="profile-list">
+            <li>Account</li>
+            <li  id="signup">Sign Up</li>
+            <li>Login</li>
+          </ul>
+
+
+        </div>
+      </div>
+    </header>
+<div id="form-div">
+  <div class="name">
+    <img src="assets/profile-avatar.jpg" alt="" class="profile-avatar">
+    <input type="text" placeholder="Name" class="name-input">
+
+  </div>
+  <div class="email">
+    <input type=" tel" placeholder="Phone" class="phone-input">
+    <input type="email" placeholder="Email" class="email-input">
+
+  </div>
+  <button class="save-btn" onclick="registration()">Save</button>
+</div>
+
+<div class="data-show">
+  <h1>Account details</h1>
+  <p class="data"></p>
+
+</div>
+<button id="scroll-btn" onclick="topScroll()">
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+  </svg>
+</button>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam repudiandae maiores consequatur illo. Cum commodi omnis nostrum quas iure
+   possimus at consectetur, nobis eum non quisquam, expedita praesentium mollitia. Commodi?</p>
+   <div id="google_translate_element"></div>
+
+
+</body>
+<script src="bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+  <script>
+
+    // open switches
+
+    let profile = document.querySelector("#profile-btn")
+    let details = document.querySelector(".profile-list");
+    profile.addEventListener("click",()=>{
+      details.classList.toggle("open-profile-list")
+    })
+
+    // dark mode
+    let dark = document.querySelector("#dark-mode")
+    let body = document.querySelector("body")
+    let header = document.querySelector(".nav")
+    let formDiv = document.querySelector(".form-div")
+    dark.addEventListener("click",()=>{
+      body.style.backgroundColor = "black"
+      header.style.backgroundColor = "black"
+      formDiv.style.backgroundColor = "black"
+    })
+
+    // white mode
+
+     let light = document.querySelector("#light-mode")
+    let wholeBody = document.querySelector("body")
+    let headerWhite = document.querySelector(".nav")
+    let formDivWhite = document.querySelector(".form-div")
+    light.addEventListener("click",()=>{
+      wholeBody.style.backgroundColor = "white"
+      headerWhite.style.backgroundColor = "rgb(195, 166, 205)"
+      formDivWhite.style.backgroundColor = "rgb(81, 81, 156)"
+    })
+
+    // open sign up page 
+
+    let signup = document.querySelector("#signup")
+    let signupform = document.querySelector("#form-div")
+    signup.addEventListener("click",()=>{
+      signupform.classList.toggle("sign-open");
+    })
+
+    // data storing in localstorage 
+    function registration (){
+      let name = document.querySelector(".name-input").value
+      let phone = document.querySelector(".phone-input").value
+      let email = document.querySelector(".email-input").value
+
+      localStorage.setItem("name1", name)
+      localStorage.setItem("phone1", phone)
+      localStorage.setItem("email1", email)
+
+    }
+    function getdata (){
+      let name = localStorage.getItem("name1")
+      let phone = localStorage.getItem("phone1")
+      let email = localStorage.getItem("email1")
+        
+      let form = document.querySelector(".data")
+      form.innerHTML += name+ "<br>" + phone+ "<br>" +email
+        }
+        let sum = document.querySelector(".save-btn")
+        sum.addEventListener("click", getdata)
+
+    // top scroll button
+    window.onscroll  = function() { scrollBtn ()}
+
+    function scrollBtn (){
+      if(document.body.topScroll  > 20 ||document.documentElement.scrollTop > 20)
+      document.getElementById("scroll-btn").style.display = "block"
+      else {
+      document.getElementById("scroll-btn").style.display = "none"
+    }
+    } 
+    function topScroll (){
+      document.body.topScroll = 0;
+      document.documentElement.scrollTop = 0;
+    }
+
+    
+    </script>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Carousel</title>
+    <style>
+        .carousel{
+            width: 100%;
+            overflow: hidden;
+           
+        }
+        .slides{
+            display: flex;
+            justify-content: center;
+            transition: transform 0.3s ease-in-out                                                                                                      ;
+        }
+        .slide{
+            flex: 0 0 100%;
+            display: flex;
+            justify-content: center;    
+        }
+        .slide img{
+            width: 50%;
+            height: auto;
+        }
+        .prev-btn, .next-btn{
+            width: 100px;
+            height: auto;
+            
+            border: none;
+            border-radius: 5px;
+            font-size: larger;
+            background-color: rgb(122, 64, 64);
+            color: white;
+            margin: 1rem;
+        }
+        .btn{
+            display: flex;
+            /* flex-direction: column; */
+            justify-content: center;
+            margin: 3rem;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="carousel">
+        <div class="slides">
+            <div class="slide">
+                <img src="assets/review1.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="assets/review3.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="assets/review.jpg" alt="">
+            </div>
+        </div>
+        <div class="btn">
+        <button class="prev-btn">Pre</button>
+        <button class="next-btn">Next</button>
+    </div>
+    </div>
+    
+</body>
+<script>
+   // Get the necessary elements
+const carousel = document.querySelector('.carousel');
+const slides = carousel.querySelector('.slides');
+const prevBtn = carousel.querySelector('.prev-btn');
+const nextBtn = carousel.querySelector('.next-btn');
+
+// Calculate slide width based on the carousel width
+const slideWidth = carousel.clientWidth;
+
+// Add event listeners to the buttons
+prevBtn.addEventListener('click', showPrevSlide);
+nextBtn.addEventListener('click', showNextSlide);
+
+// Function to show the previous slide
+function showPrevSlide() {
+  slides.style.transform = `translateX(${slideWidth}px)`;
+  slides.insertBefore(slides.lastElementChild, slides.firstElementChild);
+  slides.style.transition = 'none';
+  setTimeout(() => {
+    slides.style.transform = 'translateX(0)';
+    slides.style.transition = 'transform 0.3s ease-in-out';
+  }, 0);
+}
+
+// Function to show the next slide
+function showNextSlide() {
+  slides.style.transform = `translateX(-${slideWidth}px)`;
+  slides.style.transition = 'transform 0.3s ease-in-out';
+  setTimeout(() => {
+    slides.style.transform = 'translateX(0)';
+    slides.appendChild(slides.firstElementChild);
+    slides.style.transition = 'none';
+  }, 300);
+}
+
+</script>
+</html>

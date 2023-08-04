@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>carousel</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .container{
+            position: relative;
+        }
+        .slide img{
+            width: 1530px;
+
+        }
+        .arrow{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 200px;
+            padding: 1rem;
+            background-color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .next{
+            left: 95%;
+        }
+        .prev{
+            left: 1%;
+        }
+        .caption{
+            position: absolute;
+            bottom: 0px;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            left: 40%;
+            background-color: rgba(0, 0, 0, 0.386);
+            padding: 10px ;
+        }
+        .slide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="slide">
+            <img src="images/carousel.jpg" alt="" width="1500px" height="500px">
+            <div class="caption">caption 1</div>
+        </div>
+        <div class="slide">
+            <img src="images/carousel2.jpg" alt="" width="1500px" height="500px">
+            <div class="caption">caption 2</div>
+        </div>
+        <div class="slide">
+            <img src="images/carousel3.jpg" alt="" width="1500px" height="500px">
+            <div class="caption">caption 3</div>
+        </div>
+        <div class="slide">
+            <img src="images/carousel4.jpg" alt="" width="1500px" height="500px">
+            <div class="caption">caption 4</div>
+        </div>
+        <span class="arrow prev" onclick="controller(-1)">&#60;</span>
+        <span class="arrow next" onclick="controller(1)">&#62;</span>
+    </div>
+</body>
+<script>
+    let flag  = 0;
+    function controller (x){
+        flag = flag + x;
+        slideshow(flag)
+    }
+    slideshow(flag)
+    function slideshow(num){
+        let slides = document.getElementsByClassName("slide");
+        if(num == slides.length){
+            flag = 0;
+            num = 0;
+        }
+        if(num < 0){
+            flag = slides.length-1;
+            num = slides.lenght-1;
+
+        }
+        for(let y of slides){
+            y.style.display = "none";
+        }
+        slides[num].style.display ="block";
+    }
+</script>
+</html>

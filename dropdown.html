@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drop down</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+            flex-direction: column;
+           
+
+        }
+        #opt{
+            background-color: navy;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: larger;
+            position: relative;
+        }
+        #fla{
+            position: absolute;
+            background-color: blueviolet;
+            padding: 1rem 3rem ;
+            color: white;
+            top:25rem;
+            display: none;
+
+        }
+        #fla  li{
+            list-style: none;
+
+        
+        }
+        .show{
+            display: block !important;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button id="opt"> See more</button>
+        <ul id="fla">
+            <li>first</li>
+            <li>second</li>
+            <li>third</li>
+        </ul>
+    </div>
+
+
+</body>
+<script>
+    let drop = document.getElementById("opt");
+    // console.log(drop)
+    drop.addEventListener("click",function(){
+        // alert("hello pharands")
+        document.getElementById("fla")
+        fla.classList.toggle("show")
+
+    }) 
+
+
+</script>
+
+</html>

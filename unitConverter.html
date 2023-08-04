@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>unit converter</title>
+    <style>
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            margin: 0rem 30rem ;
+
+        }
+        .feet, .inch{
+        background-color: aqua;
+        border-radius:5px ;
+
+
+
+        }
+        .cta-btn{
+          
+            margin: 4rem 1rem 0rem 1rem;
+            border: none;
+            font-size: larger;
+            background-color: aqua;
+             
+        }
+        .btn{
+            display: flex;
+            /* justify-content: center; */
+            background-color: aqua;
+            margin: 0rem 30rem ;
+            padding-bottom: 5rem;
+
+
+        }
+        #reset{
+            margin-top: 2rem;
+            margin-left: 5rem;
+            border: none;
+            border-radius: 1px;
+            font-size: larger;
+        }
+        .color-list{
+           
+            position: absolute;
+            list-style: none;
+            top: 13rem;
+            /* left: 10rem; */
+            right: 44.5rem;
+            background-color: azure;
+            /* margin-left: 2rem; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+        }
+        .color-list {
+            margin-right: 2rem;
+            display: none;
+        }
+        .openlist{
+            display: block;
+        }
+          
+
+        /* kilo meter start here  */
+        .container2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            margin: 0rem 30rem ;
+
+        }
+        .meter, .kilometer{
+        background-color: aqua;
+        border-radius:5px ;
+
+
+
+        }
+        .cta-btn2{
+          
+            margin: 4rem 1rem 0rem 1rem;
+            border: none;
+            font-size: larger;
+            background-color: aqua;
+             
+        }
+        .btn2{
+            display: flex;
+            background-color: aqua;
+            margin: 0rem 30rem ;
+            padding-bottom: 5rem;
+
+
+        }
+        #reset2{
+            margin-top: 2rem;
+            margin-left: 5rem;
+            border: none;
+            border-radius: 1px;
+            font-size: larger;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Feet into Inches</h1>
+    <div class="container">
+        <div class="feet">
+            <h2>feet</h2>
+            <input type="number" id="foot" value="0">
+
+        </div>
+        <button class="cta-btn">=</button>
+        <div class="inch">
+            <h2>inch</h2>
+            <input type="number" name="" id="anch" value="0">
+
+        </div>
+    </div>
+    <div class="btn">
+
+        <button id="reset">Reset</button>
+        <button id="reset2" class="color-changer">change color</button>
+        <ul class = "color-list">
+            <li id="cyan" >cyan</li>
+            <li>blue</li>
+            <li>green</li>
+        </ul>
+    </div> 
+
+
+    <!-- kilo meter start here -->
+
+    
+    <h1 style="text-align: center;">M into km</h1>
+    <div class="container2">
+        <div class="kilometer">
+            <h2>Kilo Meter</h2>
+            <input type="number" name="" id="kilomotor" value="0">
+
+        </div>
+       
+        <button class="cta-btn">=</button>
+        <div class="meter">
+            <h2>Meter</h2>
+            <input type="number" id="motor" value="0">
+
+        </div>
+        
+    </div>
+    <div class="btn2">
+
+        <button id="reset2">Reset</button>
+    </div>
+
+    
+
+    
+</body>
+<script>
+    let feet = document.getElementById("foot");
+    let inch = document.getElementById("anch");
+    feet.addEventListener("input",function(){
+        let f = this.value
+        let i = f*12;
+        inch.value = i ;
+    })
+    inch.addEventListener("input", function (){
+        let i = this.value;
+        let f = i/12;
+        if(!Number.isInteger(f)){
+            f = f.toFixed(3)
+        }
+        feet.value = f;
+    })
+    let btn = document.getElementById("reset");
+    let inputs = document.querySelectorAll("input")
+    btn.addEventListener("click",function(){
+        foot.value = 0;
+        anch.value = 0;
+    })
+
+    let colorChanger = document.querySelector(".color-changer")
+    let colorList = document.querySelector(".color-list");
+    colorChanger.addEventListener("click", ()=>{
+        colorList.classList.toggle("openlist")
+    })
+
+    let cyan = document.querySelector("#cyan");
+    let body = document.querySelector("body");
+    cyan.addEventListener("click",()=>{
+        body.style.backgroundColor = ("black")
+    })
+    cyan.addEventListener("")
+
+        
+
+
+    // kilometer start here
+
+
+
+    let meter = document.getElementById("motor")
+    let kilometer = document.getElementById("kilomotor")
+    kilometer.addEventListener("input",function(){
+        let km = this.value
+        let m = km*1000;
+        meter.value = m;
+    })
+
+    meter.addEventListener("input", function (){
+        let m = this.value;
+        let km = m/1000
+        kilometer.value = km;
+    })
+
+    let btn2 = document.getElementById("reset2")
+    let inputs2 = document.querySelectorAll("input")
+    btn2.addEventListener("click", function (){
+        motor.value = 0
+        kilomotor.value = 0;
+    })
+    
+
+
+</script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respove Template</title>
+    <link rel="stylesheet" href="bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <style>
+        .blue{
+            background-color: blue;
+        }
+       
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae accusamus fugit, odio quas eos repellat necessitatibus molestias, error ullam cumque libero ex reprehenderit facere cupiditate, deleniti suscipit corporis? Maiores, quisquam!</h1>
+        <button class="mode">
+            mode changer
+        </button>
+    </div>
+    
+</body>
+<script src="bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/js/bootstrap.min.js" >
+    
+</script>
+<script>
+    let mode = document.querySelector(".mode")
+    mode.addEventListener("click",()=>{
+        let a = document.querySelector("body")
+        a.classList.toggle("blue")
+
+    })
+</script>
+</html>
